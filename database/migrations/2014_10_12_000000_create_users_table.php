@@ -23,6 +23,9 @@ class CreateUsersTable extends Migration
             $table->string('avatar');
             $table->rememberToken();
             $table->timestamps();
+            $table->user_id = \Auth::id();
+            $table->integer('user_id');
+
         });
     }
 

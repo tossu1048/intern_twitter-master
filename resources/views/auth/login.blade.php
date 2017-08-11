@@ -10,7 +10,7 @@
                     </div>
 
                     <div class="card-block">
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{ route('login',[Auth::user()]) }}">
                             {{ csrf_field() }}
 
                             <div class="form-group row {{ $errors->has('email') ? ' has-danger' : '' }}">

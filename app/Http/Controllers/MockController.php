@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tweet;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class MockController extends Controller
@@ -9,9 +11,18 @@ class MockController extends Controller
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function account()
+
+    public function store(Request $request)
     {
-        return view('settings.account');
+
+        //usersテーブルにデータを追加
+        User::create([
+            'url_name' => $request->input('url_name'),
+            'email' => $request->input('email'),
+            'password' => bcrypt($request->input('password')),
+        ]);
+
+        return back();
     }
 
     /**
@@ -19,7 +30,18 @@ class MockController extends Controller
      */
     public function profile()
     {
-        return view('settings.profile');
+        //return view('settings.profile');
+
+
+        $url_name = \Auth::user()->url_name;
+        $email = \Auth::user()->email;
+
+
+        return view('settings.profile', [
+            'url_name' => $url_name,
+            'email' => $email,
+
+        ]);
     }
 
     /**
@@ -27,7 +49,18 @@ class MockController extends Controller
      */
     public function search()
     {
-        return view('search');
+        $body = Tweet::all();
+        $url_name = \Auth::user()->url_name;
+        $email = \Auth::user()->email;
+
+
+        return view('search', [
+            'url_name' => $url_name,
+            'email' => $email,
+            'tweets' => $body,
+        ]);
+
+        //return view('search');
     }
 
     /**
@@ -41,10 +74,6 @@ class MockController extends Controller
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function following()
-    {
-        return view('user.following');
-    }
 
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -53,4 +82,34 @@ class MockController extends Controller
     {
         return view('user.followers');
     }
+    public function tweet()
+    {
+        return view('fragments.tweet');
+    }
+
+    public function welcome()
+    {
+        return view('welcome');
+    }
+    public function test()
+    {
+        $tables = User::select('body');
+
+        foreach ($tables as $table) {
+            echo $table->{'Tables_in_' . env('body')};
+        }
+    }
+    public function  index()
+    {
+        $users = User::all();
+
+        return view('home', ['users' => $users]);
+
+    }
+
+
 }
+
+
+
+

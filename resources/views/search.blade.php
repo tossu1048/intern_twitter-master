@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+
+
 @section('content')
     <div class="container pt-4">
         <div class="row">
@@ -7,7 +9,7 @@
                 <div class="card card-link-list mb-4">
                     <div class="card-block">
                         <h6 class="card-title">Search</h6>
-                        first, second, third
+                        です
                     </div>
                 </div>
 

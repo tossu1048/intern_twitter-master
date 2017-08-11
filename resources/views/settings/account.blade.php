@@ -9,13 +9,13 @@
         @include('fragments.footer')
     </div>
 
-    <div class="col-lg-6">
+    <div class="col-lg-9">
         <div class="card mb-4">
             <div class="card-header" style="background-color: #FFFFFF;">
                 <strong>アカウント</strong>
             </div>
             <div class="card-block">
-                <form method="POST" action="#">
+                <form method="POST" action="{{route('account')}}">
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
 
@@ -23,7 +23,7 @@
                         <label for="url_name" class="col-4 col-form-label">ユーザー名</label>
                         <div class="col-8">
                             <input name="url_name" type="text" maxlength="15" id="url_name" class="form-control"
-                                   value="snicmakino">
+                                   value="snicmak">
 
                             @if ($errors->has('url_name'))
                                 <div class="form-control-feedback">
@@ -64,10 +64,41 @@
                                    class="form-control">
                         </div>
                     </div>
+                    {{--ユーザ情報一覧--}}
+                    {{--<table class="table table-bordered table-hover">--}}
+
+                        {{--<thead>--}}
+                        {{--<tr>--}}
+                            {{--<th class="col-md-25">ID</th>--}}
+                            {{--<th class="col-md-12">名前</th>--}}
+                            {{--<th class="col-md-10">E-mail</th>--}}
+
+                        {{--<tr>--}}
+                        {{--</thead>--}}
+
+                        {{--<tbody>--}}
+                        {{--@foreach($users as $user)--}}
+                            {{--<tr>--}}
+                                {{--<td>{{ $user->id }}</td>--}}
+                                {{--<td>{{ $user->url_name }}</td>--}}
+                                {{--<td>{{ $user->email }}</td>--}}
+
+
+
+
+                            {{--</tr>--}}
+                        {{--@endforeach--}}
+                        {{--</tbody>--}}
+
+                    {{--</table>--}}
+                    {{--ユーザ情報一覧終了--}}
+
+
                     <div class="form-group row">
                         <div class="offset-4 col-8">
                             <button type="submit" class="btn btn-success mt-4">保存する</button>
-                        </div>
+                            {{--<button type="submit" class="btn btn-secondary mt-4">編集する</button>--}}
+                    　　 </div>
                     </div>
                 </form>
             </div>

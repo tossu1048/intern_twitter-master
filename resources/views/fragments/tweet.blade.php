@@ -1,20 +1,35 @@
 <li class="media list-group-item p-4">
-    <article class="d-flex w-100">
-        <a class="font-weight-bold text-inherit d-block" href="#">
-            <img class="media-object d-flex align-self-start mr-3" src="{{ asset('images/no-thumb.png') }}">
-        </a>
-        <div class="media-body">
-            <div class="mb-2">
-                <time class="float-right small text-muted">6時間</time>
-                <a class="text-inherit" href="#">
-                    <strong>snicmakino</strong>
-                </a>
-            </div>
+      <article class="d-flex w-100">
+        <a class="font-weight-bold text-inherit d-block" href="{{ route('account') }}">
+             <img class="media-object d-flex align-self-start mr-3" src="{{ asset('images/no-thumb.png') }}">
+         </a>
+         <div class="media-body">
+             <div class="mb-2">
+                 <time class="float-right small text-muted">
+                     </time>
+                 <a class="text-inherit" href="#">
+                     <h> {{ $url_name }}</h>
+                 </a>
 
-            <p>
-                サマーインターンの講師してるんだけど、学生は分からない問題を一つずつ試して、トライアンドエラーをしながら前に進んでいる。
-                そんな姿を見ながら、エンジニアって何年経ってもこの頃と変わらない気持ちと姿勢で、問題に向き合える良い仕事だなと感じた。
-            </p>
-        </div>
+                 <time class="float-right small text-muted">{{ $tweet->updated_at }}</time>
+                 <div
+                 <h class="float-md-none big ">{{ $tweet->body }}</h>
+                 </div>
+             </div>
+         </div>
     </article>
 </li>
+
+{{--ユーザ情報一覧--}}
+
+{{--<li>--}}
+                {{--<a class="font-weight-bold text-inherit d-block" href="{{ route('account') }}">--}}
+                        {{--<img class="media-object d-flex align-self-start mr-0" src="{{ asset('images/no-thumb.png') }}">--}}
+                    {{--</a>--}}
+                    {{--<a class="big text" >--}}
+                        {{--<h> {{ $url_name }} </h>--}}
+                    {{--</a>--}}
+                    {{--<time class="float-right small text-muted">{{ $tweet->updated_at }}</time>--}}
+                    {{--<h class="float-md-none big ">{{ $tweet->body }}</h>--}}
+
+{{--</li>--}}

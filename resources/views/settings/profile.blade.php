@@ -25,7 +25,7 @@
                         <label for="display_name" class="col-3 col-form-label">表示名</label>
                         <div class="col-9">
                             <input name="display_name" type="text" id="display_name" class="form-control"
-                                   value="snicmakino">
+                                   value="What's your name">
 
                             @if ($errors->has('display_name'))
                                 <div class="form-control-feedback">
@@ -51,7 +51,7 @@
                         <label for="description" class="col-3 col-form-label">自己紹介</label>
                         <div class="col-9">
                             <input name="description" type="text" id="description" class="form-control"
-                                   value="Software engineer（JavaとかDBとかAWSとか） 空前絶後のKotlinブーム中" maxlength="160">
+                                   value="ひとこと" maxlength="160">
 
                             @if ($errors->has('description'))
                                 <div class="form-control-feedback">

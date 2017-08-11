@@ -10,27 +10,29 @@
                 </a>
 
                 <div class="card-title my-2">
-                    <a href="#" class="font-weight-bold text-inherit d-block">
-                        snicmakino
+                    <a href="{{ route('profile') }}" class="font-weight-bold text-inherit d-block">
+                        <h1> {{ $url_name }}</h1>
+
+
                     </a>
-                    <a href="#" class="text-inherit">
-                        &#64;snicmakino
+                    <a href="{{ route('profile') }}" class="text-inherit">
+                        &#64;{{ $email }}
                     </a>
                 </div>
 
-                <p class="mb-4">Software engineer（JavaとかDBとかAWSとか） 空前絶後のKotlinブーム中</p>
+                <p class="mb-4">フォロワーが欲しい。。</p>
 
                 <ul class="card-profile-stats">
                     <li class="card-profile-stat">
-                        <a href="#" class="text-inherit">
+                        <a href="{{route('following', [Auth::user()])}}" class="text-inherit">
                             フォロー
-                            <strong class="d-block">30</strong>
+                            <strong class="d-block">0</strong>
                         </a>
                     </li>
                     <li class="card-profile-stat">
-                        <a href="#" class="text-inherit">
+                        <a href="{{route('followers',[Auth::user()])}}" class="text-inherit">
                             フォロワー
-                            <strong class="d-block">7</strong>
+                            <strong class="d-block">0</strong>
                         </a>
                     </li>
                 </ul>
@@ -41,7 +43,7 @@
     <div class="col-lg-6">
         <ul class="list-group media-list-stream mb-4">
             <li class="media list-group-item p-4 {{ $errors->has('body') ? 'has-danger' : '' }}">
-                <form method="POST" action="#" class="input-group">
+                <form method="POST" action="{{route('tweet')}}" class="input-group">
                     {{ csrf_field() }}
 
                     <input name="body" type="text" class="form-control" placeholder="いまどうしてる？">
@@ -58,7 +60,12 @@
                     </div>
                 @endif
             </li>
+            @foreach($tweets as $tweet)
+
             @include('fragments.tweet')
+
+            @endforeach
+
         </ul>
     </div>
 
@@ -66,3 +73,6 @@
         @include('fragments.footer')
     </div>
 @endsection
+
+
+

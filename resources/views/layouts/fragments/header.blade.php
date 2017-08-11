@@ -16,13 +16,15 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('following', [Auth::user()])}}" class="nav-link">
+                {{--<a href="" class="nav-link">--}}
                     フォロー
                     <strong class="d-block">30</strong>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                {{--<a href="{{route('follower')}}" class="nav-link">--}}
+                <a href="{{route('followers', [Auth::user()])}}" class="nav-link">
                     フォロワー
                     <strong class="d-block">7</strong>
                 </a>
